@@ -63,7 +63,10 @@ const resolvers={
             ]
         }),
         login:(parent,{userinfo:{username,password}},context,info)=>{
-            return [username,password]
+            if(password==='password')
+                return [username,password]
+            else
+                return [username,`password does not match for ${username}`]
         }
     }
 }
