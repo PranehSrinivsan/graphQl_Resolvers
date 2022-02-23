@@ -1,0 +1,17 @@
+Resolver is a function that resolves a value for a type or field in a schema
+Resolvers can return objects / scalars
+Execution continues to the next child field if an Object is returned
+Execution completes if a scalar is returned at a leaf node.
+
+Resolver functions can optionally accept four positional arguments
+fieldName: (parent, args, context, info) => data;
+parent:
+This is the return value of the resolver for this field's parent 
+Resolver for a parent field always executes before the resolvers for that field's children
+args:
+This object contains all GraphQL arguments provided for this field.
+context:
+This object is shared across all resolvers that execute for a particular operation.
+Used to share pre-operation state, such as authentication information and access to data sources
+info:
+This contains information about the execution state of the operation.
